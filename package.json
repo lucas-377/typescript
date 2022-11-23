@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "lite-server --baseDir=dist",
     "start": "concurrently \"npm run watch\" \"npm run server\"",
-    "tscompile": "tsc"
+    "tscompile": "tsc",
+    "tswatch": "tsc -w"
   },
   "author": "Lucas Santana",
   "license": "ISC",
