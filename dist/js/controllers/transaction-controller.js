@@ -6,11 +6,30 @@ export class TransactionController {
         this.inputValue = document.querySelector('#valor');
     }
     add() {
+        const transaction = this.createTransaction();
+        console.log(transaction);
+        this.clearInputs();
+    }
+    /**
+     * Format values and create a new transaction
+     * @returns Transaction
+     */
+    createTransaction() {
+        // Format values
         const regexp = /-/g;
         const date = new Date(this.inputDate.value.replace(regexp, ','));
         const quantity = parseInt(this.inputQuantity.value);
         const value = parseFloat(this.inputValue.value);
-        const transaction = new Transaction(date, quantity, value);
-        console.log(transaction);
+        return new Transaction(date, quantity, value);
+    }
+    /**
+     * Clear input fields after submitting form
+     * @returns void
+     */
+    clearInputs() {
+        this.inputDate.value = '';
+        this.inputQuantity.value = '';
+        this.inputValue.value = '';
+        this.inputDate.focus();
     }
 }
