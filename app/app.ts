@@ -1,4 +1,9 @@
-import { Transaction } from './models/transaction.js';
+import { TransactionController } from "./controllers/transaction-controller.js";
 
-const transaction = new Transaction(new Date(), 10, 100);
-console.log(transaction);
+const controller = new TransactionController();
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  controller.add();
+});

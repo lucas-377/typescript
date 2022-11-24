@@ -3,7 +3,7 @@ export class Transaction {
   private _quantity;
   private _value;
 
-  constructor(date, quantity, value) {
+  constructor(date: Date, quantity: number, value: number) {
     this._date = date;
     this._quantity = quantity;
     this._value = value;
