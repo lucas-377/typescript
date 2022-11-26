@@ -1,9 +1,11 @@
 import { Transaction } from "../models/transaction.js";
+import { Transactions } from "../models/transactions.js";
 
 export class TransactionController {
   private inputDate: HTMLInputElement;
   private inputQuantity: HTMLInputElement;
   private inputValue: HTMLInputElement;
+  private transactions = new Transactions();
 
   constructor() {
     this.inputDate = document.querySelector('#data');
@@ -13,7 +15,8 @@ export class TransactionController {
 
   add(): void {
     const transaction = this.createTransaction();
-    console.log(transaction);
+    this.transactions.add(transaction);
+    console.log(this.transactions.list());
     this.clearInputs();
   }
 
