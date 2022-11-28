@@ -8,12 +8,12 @@ export class TransactionController {
         this.inputDate = document.querySelector('#data');
         this.inputQuantity = document.querySelector('#quantidade');
         this.inputValue = document.querySelector('#valor');
-        this.transactionsView.update();
+        this.transactionsView.update(this.transactions);
     }
     add() {
         const transaction = this.createTransaction();
         this.transactions.add(transaction);
-        console.log(this.transactions.list());
+        this.transactionsView.update(this.transactions);
         this.clearInputs();
     }
     /**
