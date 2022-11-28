@@ -5,7 +5,7 @@ export class TransactionsView {
     /**
      * Create the HTML template for the table
      * @param model
-     * @returns String
+     * @returns HTMLElement
      */
     template(model) {
         return `
@@ -33,6 +33,7 @@ export class TransactionsView {
     }
     /**
      * Update the table
+     * @param model
      */
     update(model) {
         this.element.innerHTML = this.template(model);

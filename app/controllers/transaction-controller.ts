@@ -1,5 +1,6 @@
 import { Transaction } from "../models/transaction.js";
 import { Transactions } from "../models/transactions.js";
+import { MessageView } from "../views/message-view.js";
 import { TransactionsView } from "../views/transactions-view.js";
 
 export class TransactionController {
@@ -8,6 +9,7 @@ export class TransactionController {
   private inputValue: HTMLInputElement;
   private transactions = new Transactions();
   private transactionsView = new TransactionsView('#negociacoes-view');
+  private messageView = new MessageView('#mensagem-view');
 
   constructor() {
     this.inputDate = document.querySelector('#data');
@@ -20,6 +22,7 @@ export class TransactionController {
     const transaction = this.createTransaction();
     this.transactions.add(transaction);
     this.transactionsView.update(this.transactions);
+    this.messageView.update('Negociação adicionada!');
     this.clearInputs();
   }
 
