@@ -1,7 +1,5 @@
-export class TransactionsView {
-    constructor(selector) {
-        this.element = document.querySelector(selector);
-    }
+import { View } from "./view.js";
+export class TransactionsView extends View {
     /**
      * Create the HTML template for the table
      * @param model
@@ -30,12 +28,5 @@ export class TransactionsView {
         </tbody>
       </table>
     `;
-    }
-    /**
-     * Update the table
-     * @param model
-     */
-    update(model) {
-        this.element.innerHTML = this.template(model);
     }
 }

@@ -1,7 +1,5 @@
-export class MessageView {
-    constructor(selector) {
-        this.element = document.querySelector(selector);
-    }
+import { View } from "./view.js";
+export class MessageView extends View {
     /**
      * Create the template for the message
      * @param model
@@ -9,15 +7,12 @@ export class MessageView {
      */
     template(model) {
         return `
-      <p class="alert alert-info alert-dismissible fade show">${model}</p>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>${model}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     `;
-    }
-    /**
-     * Update the message to the view
-     * @param model
-     */
-    update(model) {
-        const template = this.template(model);
-        this.element.innerHTML = template;
     }
 }

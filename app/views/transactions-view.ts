@@ -1,12 +1,7 @@
+import { View } from "./view.js";
 import { Transactions } from "../models/transactions.js";
 
-export class TransactionsView {
-  private element: HTMLElement;
-
-  constructor(selector: string) {
-    this.element = document.querySelector(selector);
-  }
-
+export class TransactionsView extends View<Transactions> {
   /**
    * Create the HTML template for the table
    * @param model 
@@ -35,13 +30,5 @@ export class TransactionsView {
         </tbody>
       </table>
     `;
-  }
-
-  /**
-   * Update the table
-   * @param model
-   */
-  update(model: Transactions): void {
-    this.element.innerHTML = this.template(model);
   }
 }
