@@ -12,12 +12,24 @@ export class TransactionController {
         this.inputValue = document.querySelector('#valor');
         this.transactionsView.update(this.transactions);
     }
+    /**
+     * Add new transaction
+     */
     add() {
         const transaction = this.createTransaction();
+        if (!this.isLaborDay(transaction.date)) {
+            this.messageView.update("Somente crie uma negociação em dias úteis!");
+        }
         this.transactions.add(transaction);
         this.transactionsView.update(this.transactions);
         this.messageView.update('Negociação adicionada!');
         this.clearInputs();
+    }
+    /**
+     * Return week day or weekend
+     */
+    isLaborDay(date) {
+        return date.getDay() > 0 && date.getDay() < 6;
     }
     /**
      * Format values and create a new transaction

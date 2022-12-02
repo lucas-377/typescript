@@ -6,7 +6,7 @@ export class MessageView extends View<string> {
    * @param model 
    * @returns HTMLElement
    */
-  template(model: string): string {
+  protected template(model: string): string {
     return `
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>${model}</strong>

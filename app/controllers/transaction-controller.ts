@@ -18,8 +18,16 @@ export class TransactionController {
     this.transactionsView.update(this.transactions);
   }
 
-  add(): void {
+  /**
+   * Add new transaction
+   */
+  public add(): void {
     const transaction = this.createTransaction();
+
+    if(!this.isLaborDay(transaction.date)){
+      this.messageView.update("Somente crie uma negociação em dias úteis!");
+    }
+    
     this.transactions.add(transaction);
     this.transactionsView.update(this.transactions);
     this.messageView.update('Negociação adicionada!');
@@ -27,10 +35,17 @@ export class TransactionController {
   }
 
   /**
+   * Return week day or weekend
+   */
+  private isLaborDay(date: Date): boolean {
+    return date.getDay() > 0 && date.getDay() < 6
+  }
+
+  /**
    * Format values and create a new transaction
    * @returns Transaction
    */
-  createTransaction(): Transaction {
+  private createTransaction(): Transaction {
     // Format values
     const regexp = /-/g;
     const date = new Date(this.inputDate.value.replace(regexp, ','));
@@ -44,7 +59,7 @@ export class TransactionController {
    * Clear input fields after submitting form
    * @returns void
    */
-  clearInputs(): void {
+  private clearInputs(): void {
     this.inputDate.value = '';
     this.inputQuantity.value = '';
     this.inputValue.value = '';

@@ -7,7 +7,7 @@ export class TransactionsView extends View<Transactions> {
    * @param model 
    * @returns HTMLElement
    */
-  template(model: Transactions): string {
+  protected template(model: Transactions): string {
     return `
       <table class="table table-hover table-bordered">
         <thead>
