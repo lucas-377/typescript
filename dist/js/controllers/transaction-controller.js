@@ -1,3 +1,4 @@
+import { WeekDays } from "../enums/weekdays.js";
 import { Transaction } from "../models/transaction.js";
 import { Transactions } from "../models/transactions.js";
 import { MessageView } from "../views/message-view.js";
@@ -29,7 +30,8 @@ export class TransactionController {
      * Return week day or weekend
      */
     isLaborDay(date) {
-        return date.getDay() > 0 && date.getDay() < 6;
+        return date.getDay() > WeekDays.DOMINGO
+            && date.getDay() < WeekDays.SABADO;
     }
     /**
      * Format values and create a new transaction
