@@ -1,4 +1,4 @@
-import { TransactionController } from "./controllers/transaction-controller.js";
+import { TransactionController } from "./src/controllers/transaction-controller.js";
 
 // Controller
 const controller = new TransactionController();
