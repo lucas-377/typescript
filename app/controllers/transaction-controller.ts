@@ -13,9 +13,9 @@ export class TransactionController {
   private messageView = new MessageView('#mensagem-view');
 
   constructor() {
-    this.inputDate = document.querySelector('#data');
-    this.inputQuantity = document.querySelector('#quantidade');
-    this.inputValue = document.querySelector('#valor');
+    this.inputDate = document.querySelector('#data') as HTMLInputElement;
+    this.inputQuantity = document.querySelector('#quantidade') as HTMLInputElement;
+    this.inputValue = document.querySelector('#valor') as HTMLInputElement;
     this.transactionsView.update(this.transactions);
   }
 

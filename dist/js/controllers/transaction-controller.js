@@ -13,9 +13,6 @@ export class TransactionController {
         this.inputValue = document.querySelector('#valor');
         this.transactionsView.update(this.transactions);
     }
-    /**
-     * Add new transaction
-     */
     add() {
         const transaction = this.createTransaction();
         if (!this.isLaborDay(transaction.date)) {
@@ -26,29 +23,17 @@ export class TransactionController {
         this.messageView.update('Negociação adicionada!');
         this.clearInputs();
     }
-    /**
-     * Return week day or weekend
-     */
     isLaborDay(date) {
         return date.getDay() > WeekDays.DOMINGO
             && date.getDay() < WeekDays.SABADO;
     }
-    /**
-     * Format values and create a new transaction
-     * @returns Transaction
-     */
     createTransaction() {
-        // Format values
         const regexp = /-/g;
         const date = new Date(this.inputDate.value.replace(regexp, ','));
         const quantity = parseInt(this.inputQuantity.value);
         const value = parseFloat(this.inputValue.value);
         return new Transaction(date, quantity, value);
     }
-    /**
-     * Clear input fields after submitting form
-     * @returns void
-     */
     clearInputs() {
         this.inputDate.value = '';
         this.inputQuantity.value = '';

@@ -1,10 +1,5 @@
 import { View } from "./view.js";
 export class TransactionsView extends View {
-    /**
-     * Create the HTML template for the table
-     * @param model
-     * @returns HTMLElement
-     */
     template(model) {
         return `
       <table class="table table-hover table-bordered">
